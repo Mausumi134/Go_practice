@@ -20,8 +20,30 @@ func main(){
 		copyArr[i]=arr[i]
 	}
 
-
-	fmt.Println(copyArr)
+	
+		fmt.Println(copyArr)
 	
 
+
+	// check if item exist or not
+
+   found:=false
+	for _,num:=range(arr){
+		if num==4{
+			found=true
+			break
+		}
+	}
+if found {
+    fmt.Println("num exist")
+} else {
+    fmt.Println("not exist")
 }
+
+
+// find and delete an item in an array
+
+ result:=deleteArr(arr,3)
+ fmt.Print(result)
+}
+
