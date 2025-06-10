@@ -1,7 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"sort"
+	"strconv"
+	"strings"
+)
+func reverse(arr []int)[]int{
+	n:=len(arr)
 
+	for i:=0;i<n/2;i++{
+      arr[i],arr[n-1-i]=arr[n-1-i],arr[i]
+	}
+	return arr
+}
 func main(){
 	// copy an array or slice in golang 
 	var n int
@@ -48,6 +61,40 @@ if found {
 
 //  append into the array
 add(&arr)
-fmt.Print(arr)
+fmt.Println(arr)
+
+// convert the array into json
+jsonarr:=[]string{"hello","world"}
+jsonData,err:=json.Marshal(jsonarr)
+
+if err!=nil{
+	fmt.Println("error in converting into json")
+	return
+}else{
+	fmt.Println(string(jsonData))
+}
+// sort array
+sort.Ints(arr)
+fmt.Println(arr)
+
+// reverse array
+arr=reverse(arr)
+fmt.Println(arr)
+
+// append one slice to another slice
+
+  stringArr := []string{"Go"}
+  stringArr = append(stringArr, jsonarr...)
+fmt.Println(stringArr)
+
+// convert arr of int to string in go
+
+strArr:=make([]string,len(arr))
+for i,v:=range arr{
+	strArr[i]=strconv.Itoa(v)
+}
+fmt.Println(strArr)
+resultarr:=strings.Join(strArr,",")
+fmt.Println(resultarr)
 }
 
