@@ -1,19 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type person struct {
-	name string
-	age  int
+	Name string `json:"name"`
+	Age  int    `json:"age"`
 }
 
 func main() {
-	p:= new(person)
+	p := new(person)
+	p.Name = "mausumi"
+	p.Age = 20
 
-	p.name="mausumi"
-	p.age=20
+	fmt.Println(p.Name, p.Age)
 
-	fmt.Println(p.name,p.age)
-
-	
+	jsonData, err := json.Marshal(p)
+	if err != nil {
+		fmt.Println("error")
+		return
+	} else {
+		fmt.Println(string(jsonData))  
+	}
 }
