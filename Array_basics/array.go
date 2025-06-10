@@ -44,6 +44,10 @@ if found {
 // find and delete an item in an array
 
  result:=deleteArr(arr,3)
- fmt.Print(result)
+ fmt.Println(result)
+
+//  append into the array
+add(&arr)
+fmt.Print(arr)
 }
 
